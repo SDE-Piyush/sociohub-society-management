@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Environment Variables & Secrets (Keep your keys secure!)
+.env
+*/.env
+**/.env
+.env*.local
+**/.env*.local
+
+# Production Build Output
+dist/
+*/dist/
+**/dist/
+dist-ssr/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.idea/
+.vscode/*
+!.vscode/extensions.json
