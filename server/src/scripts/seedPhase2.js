@@ -33,9 +33,9 @@ const seedPhase2 = async () => {
     const flatB101 = await Flat.findOne({ flatNumber: '101', buildingId: { $ne: flatA101.buildingId } });
 
     // Clear Phase 2 collections
-    await Notice.deleteMany({ societyId: society._id });
-    await Complaint.deleteMany({ societyId: society._id });
-    await Visitor.deleteMany({ societyId: society._id });
+    await Notice.deleteMany({});
+    await Complaint.deleteMany({});
+    await Visitor.deleteMany({});
     console.log('🧹 Cleaned existing Phase 2 collections...');
 
     // 1. Seed Notices

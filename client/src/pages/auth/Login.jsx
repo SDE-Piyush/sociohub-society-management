@@ -235,10 +235,10 @@ export const Login = () => {
 
           {/* Quick Demo Logins Container */}
           <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-slate-800/80">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center justify-center gap-2 mb-3">
               <Sparkles className="w-4 h-4 text-cyan-400" />
-              <p className="text-[11px] sm:text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                1-Click Demo Accounts (Indian Personas)
+              <p className="text-[11px] sm:text-xs font-semibold text-slate-300 uppercase tracking-wider text-center">
+                1-Click Demo Accounts
               </p>
             </div>
 

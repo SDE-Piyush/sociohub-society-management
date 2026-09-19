@@ -24,6 +24,11 @@ const paymentSchema = new mongoose.Schema(
       ref: 'User',
       required: true,
     },
+    billId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Bill',
+      default: null,
+    },
     month: {
       type: String,
       required: true,

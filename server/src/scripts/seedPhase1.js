@@ -187,20 +187,20 @@ const seedPhase1 = async () => {
       status: 'ACTIVE',
     });
 
-    // 5. Seed a past paid receipt for September 2026 for Piyush
+    // 5. Seed a past paid receipt for August 2026 for Piyush
     await Payment.create({
       societyId: society._id,
       flatId: flatA101._id,
       buildingId: wingA._id,
       userId: ownerPiyush._id,
-      month: 'September 2026',
+      month: 'August 2026',
       amount: 4200,
       paymentMethod: 'UPI',
       upiId: 'piyush09@ptaxis',
-      transactionRef: 'UPI-928172648102',
+      transactionRef: 'UPI-828172648102',
       status: 'COMPLETED',
-      receiptNumber: 'RCP-2026-9041',
-      notes: 'September maintenance paid on time via UPI',
+      receiptNumber: 'RCP-2026-8041',
+      notes: 'August maintenance paid on time via UPI',
     });
 
     console.log('✅ Demo Users Seeded with Indian Names:');

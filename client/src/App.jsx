@@ -20,6 +20,11 @@ import { AdminBilling } from './pages/admin/AdminBilling';
 import { AdminNotices } from './pages/admin/AdminNotices';
 import { AdminComplaints } from './pages/admin/AdminComplaints';
 
+// Phase 3 Pages
+import { AdminAmenities } from './pages/admin/AdminAmenities';
+import { ResidentAmenities } from './pages/resident/ResidentAmenities';
+import { CommunityPolls } from './pages/common/CommunityPolls';
+
 // Resident Pages
 import { ResidentDashboard } from './pages/resident/ResidentDashboard';
 import { ResidentNotices } from './pages/resident/ResidentNotices';
@@ -139,6 +144,22 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="/admin/amenities"
+                element={
+                  <ProtectedRoute allowedRoles={['SOCIETY_ADMIN', 'SUPER_ADMIN']}>
+                    <AdminAmenities />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/community"
+                element={
+                  <ProtectedRoute allowedRoles={['SOCIETY_ADMIN', 'SUPER_ADMIN']}>
+                    <CommunityPolls />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Resident Routes */}
               <Route
@@ -146,6 +167,22 @@ function App() {
                 element={
                   <ProtectedRoute allowedRoles={['RESIDENT', 'SOCIETY_ADMIN', 'SUPER_ADMIN']}>
                     <ResidentDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/resident/amenities"
+                element={
+                  <ProtectedRoute allowedRoles={['RESIDENT', 'SOCIETY_ADMIN', 'SUPER_ADMIN']}>
+                    <ResidentAmenities />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/resident/community"
+                element={
+                  <ProtectedRoute allowedRoles={['RESIDENT', 'SOCIETY_ADMIN', 'SUPER_ADMIN']}>
+                    <CommunityPolls />
                   </ProtectedRoute>
                 }
               />

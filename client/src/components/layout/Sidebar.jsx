@@ -14,6 +14,7 @@ import {
   LogOut,
   Sparkles,
   QrCode,
+  Vote,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -35,17 +36,20 @@ export const Sidebar = ({ isOpen, onClose }) => {
     { name: 'Towers & Flats', path: '/admin/wings', icon: Grid },
     { name: 'Residents Directory', path: '/admin/residents', icon: Users },
     { name: 'Security & Staff', path: '/admin/staff', icon: ShieldCheck },
-    { name: 'Maintenance & Cash Desk', path: '/admin/billing', icon: CreditCard },
+    { name: 'Maintenance & Invoices', path: '/admin/billing', icon: CreditCard },
+    { name: 'Amenities Manager', path: '/admin/amenities', icon: CalendarDays },
+    { name: 'Community Polls', path: '/admin/community', icon: Vote },
     { name: 'Notice Board', path: '/admin/notices', icon: Bell },
     { name: 'Helpdesk Tickets', path: '/admin/complaints', icon: MessageSquareWarning },
   ];
 
   const residentNav = [
     { name: 'Resident Portal', path: '/resident/dashboard', icon: LayoutDashboard },
+    { name: 'Book Amenities', path: '/resident/amenities', icon: CalendarDays },
+    { name: 'Community Polls', path: '/resident/community', icon: Vote },
     { name: 'Guest Passes', path: '/resident/visitors', icon: QrCode },
     { name: 'Notices & Feed', path: '/resident/notices', icon: Bell },
     { name: 'Helpdesk & Service', path: '/resident/helpdesk', icon: MessageSquareWarning },
-    { name: 'Book Amenities', path: '/resident/amenities', icon: CalendarDays, badge: 'Phase 3' },
   ];
 
   const securityNav = [

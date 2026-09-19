@@ -18,6 +18,9 @@ import paymentRoutes from './routes/paymentRoutes.js';
 import noticeRoutes from './routes/noticeRoutes.js';
 import complaintRoutes from './routes/complaintRoutes.js';
 import visitorRoutes from './routes/visitorRoutes.js';
+import billRoutes from './routes/billRoutes.js';
+import amenityRoutes from './routes/amenityRoutes.js';
+import pollRoutes from './routes/pollRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -87,7 +90,7 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'online',
     platform: 'SocioHub API',
-    phase: 'Phase 2 - Operations, Helpdesk & Security Gatekeeper Engine',
+    phase: 'Phase 3 - Financial Engine, Amenities, Community & Polish',
     timestamp: new Date().toISOString(),
   });
 });
@@ -98,6 +101,9 @@ app.use('/api/buildings', buildingRoutes);
 app.use('/api/flats', flatRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/bills', billRoutes);
+app.use('/api/amenities', amenityRoutes);
+app.use('/api/polls', pollRoutes);
 app.use('/api/notices', noticeRoutes);
 app.use('/api/complaints', complaintRoutes);
 app.use('/api/visitors', visitorRoutes);
