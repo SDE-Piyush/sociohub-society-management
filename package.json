@@ -1,0 +1,10 @@
+{
+  "name": "sociohub-society-management",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm start"
+  }
+}

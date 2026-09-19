@@ -60,11 +60,17 @@ export const SocketProvider = ({ children }) => {
       checkPendingApproval();
     }
 
-    // Connect to backend via proxy or origin
-    const socketInstance = io({
-      withCredentials: true,
-      transports: ['websocket', 'polling'],
-    });
+    // Connect to backend via proxy, environment URL, or origin
+    const socketServerUrl = import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_URL || undefined;
+    const socketInstance = socketServerUrl
+      ? io(socketServerUrl, {
+          withCredentials: true,
+          transports: ['websocket', 'polling'],
+        })
+      : io({
+          withCredentials: true,
+          transports: ['websocket', 'polling'],
+        });
 
     const joinRooms = () => {
       console.log('⚡ Socket.IO Connected successfully:', socketInstance.id);
