@@ -199,22 +199,23 @@ export const seedPhase3 = async () => {
         { ownerId: { $ne: null } },
         { tenantId: { $ne: null } },
       ],
-    });
+    }).populate('buildingId');
     const bills = [];
 
     for (const flat of allFlats) {
       const base = flat.monthlyMaintenance || 4200;
       const isA101 = flatA101 && flat._id.toString() === flatA101._id.toString();
       const isA102 = flatA102 && flat._id.toString() === flatA102._id.toString();
+      const bCode = flat.buildingId?.code || (flat.buildingId?.name ? flat.buildingId.name.slice(0, 4).replace(/[^a-zA-Z0-9]/g, '') : 'W');
 
       // October 2026 Bill
       bills.push({
         societyId: society._id,
         flatId: flat._id,
-        buildingId: flat.buildingId,
+        buildingId: flat.buildingId?._id || flat.buildingId,
         month: 'October 2026',
         year: 2026,
-        billNumber: `INV-2026-10-${flat.flatNumber}`,
+        billNumber: `INV-2026-10-${bCode}-${flat.flatNumber}`,
         baseAmount: base,
         utilityCharges: 250,
         lateFine: 0,
@@ -230,10 +231,10 @@ export const seedPhase3 = async () => {
       bills.push({
         societyId: society._id,
         flatId: flat._id,
-        buildingId: flat.buildingId,
+        buildingId: flat.buildingId?._id || flat.buildingId,
         month: 'November 2026',
         year: 2026,
-        billNumber: `INV-2026-11-${flat.flatNumber}`,
+        billNumber: `INV-2026-11-${bCode}-${flat.flatNumber}`,
         baseAmount: base,
         utilityCharges: 250,
         lateFine: 0,
