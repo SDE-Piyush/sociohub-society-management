@@ -38,9 +38,7 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 
-# Documentation Files
-README.md
-readme.md
+# Internal Plans
 IMPLEMENTATION_PLAN.md
 implementation_plan.md
 
