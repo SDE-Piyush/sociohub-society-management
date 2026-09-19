@@ -31,11 +31,10 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
-// Initialize Socket.IO with CORS for frontend dev server
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+// Initialize Socket.IO with CORS
 export const io = new SocketIOServer(server, {
   cors: {
-    origin: [clientUrl, 'http://127.0.0.1:5173'],
+    origin: (origin, callback) => callback(null, true),
     credentials: true,
   },
 });
@@ -43,7 +42,7 @@ export const io = new SocketIOServer(server, {
 // Middleware
 app.use(
   cors({
-    origin: [clientUrl, 'http://127.0.0.1:5173'],
+    origin: (origin, callback) => callback(null, true),
     credentials: true,
   })
 );
